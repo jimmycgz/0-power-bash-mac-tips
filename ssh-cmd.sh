@@ -37,7 +37,7 @@ run_cmd () {
             ssh $pri_ip "$cmd_line" >> $cmd_output
 
             if [[ $? -eq 0 ]]; then
-                echo " Done cmd "
+                echo " Done command "
                 tail $cmd_output | grep -A 3 " * Node: $pri_ip"
             else
                 echo " Failed command !"
@@ -77,7 +77,7 @@ export input_file='host-input.yml'
 export remote_script='remote_script.sh'
 echo " "
 
-if [[ $# -lt 1 ]]
+if [[ $# -lt 1 ]] || [[ $1 == "help" ]] 
 then
     echo " "
     echo "Run some command on remote host via ssh"
@@ -124,7 +124,7 @@ else
             scp $script_name $1:$script_name
             ssh $1 "sudo chmod +x $script_name"
             echo "deployed to host $1"
-            echo "ssh $1"
+            echo "Run the script $script_name via ssh $1"
         else
             export cmd_arg=$2
             run_cmd
