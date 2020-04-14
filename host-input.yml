@@ -1,0 +1,4 @@
+15.137.3.11
+disk_used_percent{application="front-end",component="kafka",creator="SRE",device="nvme1n1p1",environment="staging",instance="12.2.17.4:9999",name="kf-001"}
+disk_used_percent{application="front-end",component="cassandra",creator="SRE",device="nvme2n1",environment="staging",instance="123.23.167.43:9999",name="cass-001"}
+# 1.5.5.22
