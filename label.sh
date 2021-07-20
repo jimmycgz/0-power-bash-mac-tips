@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Add labels to VM, finding a list of labels from a text file
+# Delete labels for commented lines
+
 create_instance () {
     gcloud compute instances create ... \
         --labels webserver=backend,media=images
