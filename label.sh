@@ -18,19 +18,28 @@ delete_label () {
 }
 
 get_label_from_file () {
+  
   while IFS="" read -r p || [ -n "$p" ]
   do
-    if [[ $p =~ ^\# ]]; then # Filter commented lines
-        export LABEL_KEY=$(printf '%s\n' "$p"|awk '{print $1}')
+    if [[ $p =~ ^\# ]]; then #Filter commented lines
+
+        export LABEL_KEY=$(printf '%s\n' "$p"|cut -d '#' -f 2|awk '{print $1}')
         # export LABEL_V=$(printf '%s\n' "$p"|awk '{print $2}')
-        echo Label Key: $LABEL_KEY 
-        # delete_label  
-    elif [[ ! $p =~ ^\t ]]; then # each line should not start with tab character
+        if [[ -z $LABEL_KEY ]]; then 
+            echo "ERROR: Can't find label key from line: $p"
+        else
+            echo Label Key: $LABEL_KEY
+            # delete_label
+        fi
+    elif [[ ! -z $p ]] && [[ ! $p =~ ^\t ]]; then
         export LABEL_KEY=$(printf '%s\n' "$p"|awk '{print $1}')
         export LABEL_V=$(printf '%s\n' "$p"|awk '{print $2}')
-        echo Key-Value: $LABEL_KEY $LABEL_V
-        add_label
-
+        if [[ -z $LABEL_KEY ]]; then 
+            echo "ERROR: Can't find label key from line: $p"
+        else
+            echo Key-Value: $LABEL_KEY $LABEL_V
+            # add_label
+        fi
 
     fi
   done < ./list-label.txt
