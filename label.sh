@@ -29,7 +29,7 @@ get_label_from_file () {
             echo "ERROR: Can't find label key from line: $p"
         else
             echo Label Key: $LABEL_KEY
-            # delete_label
+            delete_label
         fi
     elif [[ ! -z $p ]] && [[ ! $p =~ ^\t ]]; then
         export LABEL_KEY=$(printf '%s\n' "$p"|awk '{print $1}')
@@ -38,7 +38,7 @@ get_label_from_file () {
             echo "ERROR: Can't find label key from line: $p"
         else
             echo Key-Value: $LABEL_KEY $LABEL_V
-            # add_label
+            add_label
         fi
 
     fi
