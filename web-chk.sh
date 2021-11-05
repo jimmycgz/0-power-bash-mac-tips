@@ -4,8 +4,8 @@
 
 # SITES: COMMA-SEPARATED WEBSITES
 # EMAILS: COMMA-SEPARATED EMAILS
-SITES="https://www.parkviewneighbourhoodgarden.org,https://www.celpip.ca"
-EMAILS="jimmycgz@gmail.com"
+SITES="https://www.parkden.org,https://www.celp.ca"
+EMAILS="jz@gmail.com"
 
   for SITE in $(echo $SITES | tr "," " "); do
   if [ ! -z "${SITE}" ]; then

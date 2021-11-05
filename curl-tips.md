@@ -1,5 +1,5 @@
 
-
+```
 export DOMAIN=demodomain21.com
 
 curl -HHost:${DOMAIN} localhost 
@@ -21,3 +21,4 @@ Refer to: https://stackoverflow.com/questions/356705/how-to-send-a-header-using-
 
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" http://hostname/resource
 curl -H "Accept: application/xml" -H "Content-Type: application/xml" -X GET http://hostname/resource
+```

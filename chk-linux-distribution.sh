@@ -50,7 +50,7 @@ debian_task () {
 
     apt_wait_chk
     echo " Installing Java 8 for Ubuntu"
-    curl -L -b -O https://pai-gm-midgar-shared-infra-assets.s3.ap-south-1.amazonaws.com/jdk-8u171-linux-x64.rpm
+    curl -L -b -O https://shared-infra-assets.s3.ap-south-1.amazonaws.com/jdk-8u171-linux-x64.rpm
     sudo yum -y localinstall jdk-8u171-linux-x64.rpm
 
 }
