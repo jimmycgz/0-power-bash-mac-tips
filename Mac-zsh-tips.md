@@ -8,6 +8,8 @@ The syntax is somehow different between MacOs and Ubuntu, especailly for `sed` a
 export NEW_POOL='sandbox-n2d'
 export FILE='deploy.yaml'
 sed -i '' -e "s/nodeSelector.*/nodeSelector: ${NEW_POOL}/g" $FILE
+# replace the line of myNodePool with double quotes 
+sed -i '' -e "s/myNodePool=.*/myNodePool=\"${NEW_POOL}\"/g" $FILE
 ```
 ## For loop in a list of string
 ```
