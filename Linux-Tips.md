@@ -126,7 +126,9 @@ s4aAtest test test test test test test IpGxR
 ``` 
 
 # for loop 99 times, use same digit format 01~99
+```
 for i in $(seq -f "%02g" 1 99)
 do 
   echo $i && sleep 1;
 done
+```
